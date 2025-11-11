@@ -35,12 +35,11 @@ Here are the components to be built and the content they will feature:
 *   **Sub-headline:** "Bridging worlds through code and sign."
 *   **CTAs:**
     *   Primary Button: "Our Story" (links to `/about`)
-    *   Secondary Button: "See Our Work" (links to `/projects`)
-
+            *   Secondary Button: "Explore Our Impact" (links to `/projects`)
 ### b. `MissionSnippet.astro`
 
 *   **Purpose:** To concisely state the core mission, balancing business solutions with community empowerment.
-*   **Headline:** "Our Mission: Building Bridges Through Technology"
+*   **Headline:** "Your Advantage: Accessible by Design"
 *   **Content:** This will pull directly from the `about` page, emphasizing both aspects: "Our mission is simple: to create exceptional software solutions that empower users. We specialize in cloud-native software services and web application development, driven by an unwavering commitment to quality, innovation, and universal digital accessibility. We are dedicated to **Empowering the Deaf Community through Technology and Innovation**, ensuring our work benefits both our clients and the wider community."
 
 ### c. `LearningAndCommunity.astro`
@@ -48,12 +47,13 @@ Here are the components to be built and the content they will feature:
 *   **Purpose:** To highlight educational and community-focused offerings.
 *   **Headline:** "Learn & Grow with Sign Language Tech"
 *   **Content:** "Master coding with interactive tutorials, insightful interviews, and workshops delivered in International or American Sign Language."
-*   **CTA:** "Explore Learning Resources" (links to a dedicated learning/community page, or filtered blog posts/videos)
+*   **CTA:** "Explore Learning Resources" (links to a dedicated learning/community page, or filtered blog posts/videos, with a clear secondary goal like newsletter signup)
 
 ### d. `ProjectHighlight.astro`
 
-*   **Purpose:** To provide a concrete example of your work and impact.
-*   **Content:** This component will feature the **"Sign Tours Hungary"** project, as it has a powerful story and an excellent client testimonial.
+*   **Purpose:** To provide a concrete example of your work and impact, with a focus on tangible results.
+*   **Headline:** "From Vision to Reality: A Case Study"
+*   **Content:** This component will feature the **"Sign Tours Hungary"** project, as it has a powerful story and an excellent client testimonial. The testimonial will be visually elevated to maximize its impact.
     *   **Image:** `sth-location-detail-chain-bridge.webp`
     *   **Title:** Sign Tours Hungary
     *   **Impact Statement:** "Enabled thousands of Deaf travelers to experience Hungarian culture through a fully accessible, visual-first web platform."
@@ -64,7 +64,7 @@ Here are the components to be built and the content they will feature:
 
 *   **Purpose:** To showcase thought leadership and community involvement.
 *   **Headline:** "Community and Insights"
-*   **Content:** This will display the **three most recent blog posts**.
+*   **Content:** This will display the **three most relevant or impactful blog posts** (curated, not just most recent).
     *   For each post, it will show the featured image, title, and a short description.
     *   This will dynamically pull from the `blog` content collection. This section highlights our engagement with the broader tech ecosystem and our commitment to sharing knowledge.
 
