@@ -1,0 +1,73 @@
+---
+import HeaderLink from '../HeaderLink.astro';
+---
+
+<div :class="(width < 1025) && !isOpen && 'hidden'" class='navigation-menu'>
+  <nav class='navigation-menu__tabs'>
+    <HeaderLink href='/blog'>Blog</HeaderLink>
+    <HeaderLink href='/glossary'>Glossary</HeaderLink>
+    <HeaderLink href='/projects'>Projects</HeaderLink>
+    <HeaderLink href='https://interview.signlanguagetech.com/'>Interview</HeaderLink>
+    <HeaderLink href='/about'>About</HeaderLink>
+  </nav>
+</div>
+
+<style>
+  .hidden {
+    display: none;
+  }
+
+  .navigation-menu__tabs {
+    display: flex;
+  }
+
+  .navigation-menu__tabs :global(a) {
+    padding: 1em 0.5em;
+    border-bottom: 4px solid transparent;
+    text-decoration: none !important;
+  }
+
+  .navigation-menu__tabs :global(a.active) {
+    text-decoration: none;
+    border-bottom-color: var(--black);
+  }
+
+  @media (max-width: 1024px) {
+    .navigation-menu {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 70px;
+      left: 0;
+      z-index: 100;
+      background-color: rgb(var(--white));
+    }
+
+    .navigation-menu__tabs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .navigation-menu__tabs :global(a) {
+      font-size: 1.2em;
+      padding: 1.5em 2em;
+      width: 100%;
+      text-align: center;
+      border-bottom: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .navigation-menu {
+        background-color: rgb(var(--gray-dark));
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .navigation-menu__tabs :global(a.active) {
+      border-bottom-color: rgba(var(--white), 0.5)
+    }
+  }
+</style>

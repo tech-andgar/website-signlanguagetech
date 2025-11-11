@@ -1,123 +1,15 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Layout from '../layouts/Layout.astro';
-import SltStackImg from '../components/icons/SltStackImg.astro';
-import BookAppointmentButton from '../components/BookAppointmentButton.astro';
-
+import HeroSection from '../components/home/HeroSection.astro';
+import FeaturesSection from '../components/home/FeaturesSection.astro';
+import ExploreMoreSection from '../components/home/ExploreMoreSection.astro';
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class='main-content'>
-    <section class='main-content__intro'>
-      <div class='section-left'>
-        <h1 class='title'>Empowering
-          Deaf Community through
-          Technology and Innovation
-        </h1>
-        <h2 class='sub-title mb-2'>
-          Sign Language Tech helps upskill your skill,
-          expand your knowledge, and empowers the deaf
-          and hard of hearing community.
-        </h2>
-        <BookAppointmentButton />
-      </div>
-      <div class='section-right'>
-        <SltStackImg width='300px' />
-      </div>
-    </section>
-    <section class='main-content__features'>
-      <h1>Master coding with interactive tutorials, insightful interviews, and workshops delivered in International or American Sign Language</h1>
-      <div class='pictures'>
-        <img src='conference.webp' alt='conference'>
-        <img src='workshop.webp' alt='workshop'>
-        <img src='coding.webp' alt='coding'>
-      </div>
-    </section>
-    <section class='main-content__explore-more'>
-      <a href='/blog'>
-        <button class='primary-button'>Explore more</button>
-      </a>
-    </section>
+    <HeroSection />
+    <FeaturesSection />
+    <ExploreMoreSection />
   </main>
 </Layout>
-
-
-
-<style>
-  .pictures {
-    display: flex;
-    height: 200px;
-    gap: 20px;
-  }
-
-  .pictures img {
-    border: 5px solid rgb(var(--black));
-    filter: grayscale(100%) brightness(130%);
-  }
-
-  .pictures img:hover {
-    filter: grayscale(0);
-  }
-
-  section {
-    margin-bottom: 120px;
-  }
-
-  .primary-button {
-    width: unset;
-    padding: 15px;
-  }
-  .primary-button {
-    font-size: 1em;
-  }
-  .main-content__intro {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .main-content__partners {
-    padding: 100px;
-    border: 1px black solid;
-  }
-
-  .main-content__features h1 {
-    font-size: 1.5em;
-    margin-bottom: 40px;
-  }
-
-  .main-content__explore-more {
-    padding: 100px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .title {
-    white-space: pre-line;
-    font-size: 2.5em;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-  }
-
-  .sub-title {
-    white-space: pre-line;
-    font-size: 1em;
-    color: rgb(var(--gray))
-  }
-
-  @media  (max-width: 720px) {
-    .section-right {
-      display: none;
-    }
-
-    .pictures {
-      flex-direction: column;
-      height: unset;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    .sub-title {
-      color: rgb(var(--white), 0.5)
-    }
-  }
-</style>

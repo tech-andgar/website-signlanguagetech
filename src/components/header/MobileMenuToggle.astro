@@ -1,0 +1,27 @@
+---
+import MenuNavigationIcon from '../icons/MenuNavigationIcon.astro';
+import CrossIcon from '../icons/CrossIcon.astro';
+---
+
+<div class='mobile-menu-toggle' @click='toggle'>
+  <span x-show='!isOpen'>
+    <MenuNavigationIcon height='32px' width='32px' />
+  </span>
+  <span x-show='isOpen'>
+    <CrossIcon height='32px' width='32px' />
+  </span>
+</div>
+
+<style>
+  .mobile-menu-toggle {
+    display: none;
+    padding-top: 10px;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-menu-toggle {
+      display: block;
+    }
+  }
+</style>

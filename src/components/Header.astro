@@ -1,56 +1,31 @@
 ---
-import HeaderLink from './HeaderLink.astro';
+import Logo from './header/Logo.astro';
+import NavigationMenu from './header/NavigationMenu.astro';
+import MobileMenuToggle from './header/MobileMenuToggle.astro';
 import SocialLinks from './SocialLinks.astro';
-import MenuNavigationIcon from './icons/MenuNavigationIcon.astro';
-import CrossIcon from './icons/CrossIcon.astro';
-import SltIcon from './icons/SltIcon.astro';
 import Search from './Search.astro';
 ---
 
 <header
   class='header'
   x-data=`{
-      toggle() { 
+      toggle() {
         this.isOpen = !this.isOpen;
         document.body.style.overflow = this.isOpen ? "hidden" : "";
       },
       dark: window.matchMedia("(prefers-color-scheme: dark)").matches,
       isOpen: false,
-      width: 1920 
+      width: 1920
     }`
   x-init='width = window.innerWidth'
   x-on:resize.window='width = window.innerWidth'
 >
   <nav class='nav'>
-    <!-- <strong x-text="dark"></strong> -->
-    <h1 class='sub-header'>
-      <a class='nav-link slt-link' href='/'>
-        <template x-if="dark">
-          <SltIcon height='32px' width='32px' dark={true} />
-        </template>
-        <template x-if="!dark">
-          <SltIcon height='32px' width='32px' />
-        </template>
-        <span class='slt-text'>Sign Language Tech</span>
-      </a>
-    </h1>
+    <Logo />
     <Search />
-    <div class='menu-icon' @click='toggle'>
-      <span x-show='!isOpen'>
-        <MenuNavigationIcon height='32px' width='32px' />
-      </span>
-      <span x-show='isOpen'><CrossIcon height='32px' width='32px' /></span>
-    </div>
-    <div :class="(width < 720) && !isOpen && 'hidden'" class='tabs-group'>
-      <div class='tabs'>
-        <HeaderLink href='/blog'>Blog</HeaderLink>
-        <HeaderLink href='/glossary'>Glossary</HeaderLink>
-        <HeaderLink href='/projects'>Projects</HeaderLink>
-        <HeaderLink href='https://interview.signlanguagetech.com/'>Interview</HeaderLink>
-        <HeaderLink href='/about'>About</HeaderLink>
-      </div>
-    </div>
-    <div class='social-links'>
+    <MobileMenuToggle />
+    <NavigationMenu />
+    <div class='nav__social-links'>
       <SocialLinks />
     </div>
   </nav>
@@ -66,24 +41,6 @@ import Search from './Search.astro';
     justify-content: center;
   }
 
-  .sub-header {
-    margin: 0;
-    font-size: 1em;
-  }
-
-  .slt-link {
-    display: flex;
-    align-items: center;
-  }
-
-  .slt-text {
-    padding: 0 10px;
-  }
-
-  .hidden {
-    display: none;
-  }
-
   .nav {
     display: flex;
     align-items: center;
@@ -91,76 +48,20 @@ import Search from './Search.astro';
     width: 1200px;
   }
 
-  .nav a {
-    padding: 1em 0.5em;
-    border-bottom: 4px solid transparent;
-    text-decoration: none !important;
-  }
-
-  .nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--black);
-  }
-
-  .menu-icon {
-    display: none;
-    padding-top: 10px;
-    margin-left: 10px;
-  }
-
-  .social-links {
+  .nav__social-links {
     display: flex;
     gap: 16px;
   }
 
-  @media (max-width: 720px) {
-    .sub-header {
-      width: 100%;
-      z-index: 10;
-    }
-
-    .social-links {
+  @media (max-width: 1024px) {
+    .nav__social-links {
       display: none;
     }
-
-    .tabs-group {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 70px;
-      left: 0;
-      z-index: 100;
-      background-color: rgb(var(--white));
-    }
-
-    .tabs {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .menu-icon {
-      display: block;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .tabs-group {
-        background-color: rgb(var(--gray-dark));
-      }
-    }
-
   }
 
   @media (prefers-color-scheme: dark) {
     .header {
       background-color: rgb(var(--gray-dark));
-    }
-    .slt-link {
-      color: rgb(var(--white))
-    }
-
-    .nav a.active {
-      border-bottom-color: rgba(var(--white), 0.5)
     }
   }
 </style>

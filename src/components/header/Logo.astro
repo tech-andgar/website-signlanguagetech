@@ -1,0 +1,44 @@
+---
+import SltIcon from '../icons/SltIcon.astro';
+---
+
+<h1 class='logo'>
+  <a class='logo__link' href='/'>
+    <template x-if="dark">
+      <SltIcon height='32px' width='32px' dark={true} />
+    </template>
+    <template x-if="!dark">
+      <SltIcon height='32px' width='32px' />
+    </template>
+    <span class='logo__text'>Sign Language Tech</span>
+  </a>
+</h1>
+
+<style>
+  .logo {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  .logo__link {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo__text {
+    padding: 0 10px;
+  }
+
+  @media (max-width: 1024px) {
+    .logo {
+      width: 100%;
+      z-index: 10;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .logo__link {
+      color: rgb(var(--white))
+    }
+  }
+</style>
