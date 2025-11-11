@@ -1,0 +1,139 @@
+---
+// Image Modal Component - Single Responsibility: Handle fullscreen image display
+---
+
+<div id="imageModal" class="modal" aria-hidden="true">
+  <button class="modal-close" aria-label="Close modal">&times;</button>
+  <img src="" alt="" class="modal-image" id="modalImage" />
+</div>
+
+<script>
+  // Image modal functionality
+  class ImageModal {
+    constructor() {
+      this.modal = document.getElementById('imageModal');
+      this.modalImage = document.getElementById('modalImage');
+      this.closeBtn = document.querySelector('.modal-close');
+      this.init();
+    }
+
+    init() {
+      this.attachEventListeners();
+    }
+
+    attachEventListeners() {
+      // Open modal when clicking images with data-lightbox attribute
+      const projectImages = document.querySelectorAll('[data-lightbox="true"]');
+      projectImages.forEach(img => {
+        img.addEventListener('click', () => this.open(img));
+      });
+
+      // Close button click
+      this.closeBtn.addEventListener('click', () => this.close());
+
+      // Close on background click
+      this.modal.addEventListener('click', (e) => {
+        if (e.target === this.modal) {
+          this.close();
+        }
+      });
+
+      // Close on ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+          this.close();
+        }
+      });
+    }
+
+    open(imgElement) {
+      this.modal.setAttribute('aria-hidden', 'false');
+      this.modal.classList.add('active');
+      this.modalImage.src = imgElement.src;
+      this.modalImage.alt = imgElement.alt;
+      document.body.style.overflow = 'hidden';
+    }
+
+    close() {
+      this.modal.setAttribute('aria-hidden', 'true');
+      this.modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Initialize modal
+  new ImageModal();
+</script>
+
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 48px;
+    font-weight: 300;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+  }
+
+  .modal-close:hover,
+  .modal-close:focus {
+    color: var(--accent);
+    transform: scale(1.2);
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .modal-image {
+      max-width: 95%;
+      max-height: 85vh;
+    }
+
+    .modal-close {
+      top: 10px;
+      right: 10px;
+      font-size: 36px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>

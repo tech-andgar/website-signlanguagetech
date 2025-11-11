@@ -25,19 +25,52 @@ const { blogs } = Astro.props;
   .list {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    row-gap: 24px;
+    column-gap: 20px;
   }
 
   .blog {
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    padding: 0.25rem 0rem;
+    border-radius: 12px;
     display: flex;
-    gap: 20px;
-    border: 1px solid rgb(var(--gray));
+    flex-direction: column;
+    border: 1px solid var(--blog-card-border);
+    background-color: var(--blog-card-bg);
+    transition: all 0.3s ease;
+    height: 100%;
   }
 
   .blog:hover {
     box-shadow: var(--box-shadow);
+    transform: translateY(-4px);
+    border-color: rgb(var(--accent-light));
+  }
+
+  @media (max-width: 768px) {
+    .list {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+      row-gap: 20px;
+      column-gap: 20px;
+    }
+
+    .blog {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .list {
+      padding: 0 20px;
+      row-gap: 16px;
+      column-gap: 16px;
+    }
+
+    .blog {
+      padding: 1rem;
+    }
   }
 </style>

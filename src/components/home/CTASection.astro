@@ -1,0 +1,80 @@
+---
+// CTA Section - Final call-to-action with booking integration
+import BookAppointmentButton from '../BookAppointmentButton.astro';
+---
+
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>Have a project in mind?</h2>
+    <p class="cta-subheading">Let's build something better, together.</p>
+    <div class="cta-button-wrapper">
+      <BookAppointmentButton class="appointment-button" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    width: 100%;
+    padding: 120px 20px;
+    background: linear-gradient(135deg, rgba(var(--accent), 0.05) 0%, rgba(var(--accent), 0.1) 100%);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: 2.441em;
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+    color: rgb(var(--black));
+    font-weight: 700;
+  }
+
+  .cta-subheading {
+    font-size: 1.4em;
+    line-height: 1.6;
+    color: rgb(var(--gray-dark));
+    margin: 0 0 40px 0;
+  }
+
+  .cta-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .cta-section {
+      padding: 80px 20px;
+    }
+
+    .cta-content h2 {
+      font-size: 1.953em;
+    }
+
+    .cta-subheading {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    .cta-section {
+      background: linear-gradient(135deg, rgba(var(--accent), 0.1) 0%, rgba(var(--accent), 0.15) 100%);
+    }
+
+    .cta-content h2 {
+      color: rgb(var(--gray-light));
+    }
+
+    .cta-subheading {
+      color: rgb(var(--gray));
+    }
+  }
+</style>

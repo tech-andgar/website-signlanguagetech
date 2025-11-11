@@ -1,0 +1,240 @@
+---
+// Community Highlight Section - Featured Blog Posts
+import { getCollection } from 'astro:content';
+
+// Featured blog posts
+const featuredSlugs = ['kubecon-london-2025', 'jsconf-budapest-2024', 'sign-to-text-ai-revolution'];
+
+const allPosts = await getCollection('blog');
+const featuredPosts = featuredSlugs
+  .map(slug => allPosts.find(post => post.slug === slug))
+  .filter(post => post !== undefined);
+---
+
+<section class="community-highlight">
+  <div class="community-content">
+    <h2>Community Insights</h2>
+    <p class="section-intro">
+      From international conferences to cutting-edge AI, we share our journey building
+      accessible technology and fostering inclusive tech communities.
+    </p>
+    <div class="posts-grid">
+      {featuredPosts.map((post) => (
+        <article class="post-card">
+          <a href={`/blog/${post.slug}`} class="post-link">
+            {post.data.heroImage && (
+              <div class="post-image">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <div class="post-content">
+              <h3>{post.data.title}</h3>
+              <p class="post-description">{post.data.description}</p>
+              <span class="read-more">Read Article →</span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="cta-footer">
+      <a href="/blog" class="explore-button">Explore All Insights</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .community-highlight {
+    width: 100%;
+    padding: 120px 20px;
+    background: white;
+  }
+
+  .community-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .community-content h2 {
+    font-size: 2.441em;
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+    color: rgb(var(--black));
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .section-intro {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: rgb(var(--gray-dark));
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .post-card {
+    background: rgb(var(--gray-light));
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent);
+  }
+
+  .post-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: rgb(var(--gray-dark));
+  }
+
+  .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .post-card:hover .post-image img {
+    transform: scale(1.05);
+  }
+
+  .post-content {
+    padding: 24px;
+  }
+
+  .post-content h3 {
+    font-size: 1.25em;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+    color: rgb(var(--black));
+    font-weight: 700;
+  }
+
+  .post-description {
+    font-size: 1em;
+    line-height: 1.6;
+    color: rgb(var(--gray-dark));
+    margin: 0 0 16px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .read-more {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--accent);
+    transition: gap 0.3s ease;
+  }
+
+  .post-card:hover .read-more {
+    color: var(--accent-dark);
+  }
+
+  .cta-footer {
+    text-align: center;
+  }
+
+  .explore-button {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .explore-button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(35, 55, 255, 0.3);
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .community-highlight {
+      padding: 80px 20px;
+    }
+
+    .community-content h2 {
+      font-size: 1.953em;
+    }
+
+    .section-intro {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .post-image {
+      height: 180px;
+    }
+
+    .post-content {
+      padding: 20px;
+    }
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    .community-highlight {
+      background: rgb(var(--black));
+    }
+
+    .community-content h2 {
+      color: rgb(var(--gray-light));
+    }
+
+    .section-intro {
+      color: rgb(var(--gray));
+    }
+
+    .post-card {
+      background: rgb(var(--gray-dark));
+    }
+
+    .post-content h3 {
+      color: rgb(var(--gray-light));
+    }
+
+    .post-description {
+      color: rgb(var(--gray));
+    }
+
+    .post-card:hover {
+      box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
+    }
+  }
+</style>

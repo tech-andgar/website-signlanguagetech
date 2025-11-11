@@ -1,56 +1,176 @@
 ---
-import SltStackImg from '../icons/SltStackImg.astro';
-import BookAppointmentButton from '../BookAppointmentButton.astro';
+// Hero Section - Powerful opening statement with founder imagery
 ---
 
-<section class='hero-section'>
-  <div class='hero-section__left'>
-    <h1 class='hero-section__title'>Empowering
-      Deaf Community through
-      Technology and Innovation
-    </h1>
-    <h2 class='hero-section__subtitle mb-2'>
-      Sign Language Tech helps upskill your skill,
-      expand your knowledge, and empowers the deaf
-      and hard of hearing community.
-    </h2>
-    <BookAppointmentButton />
-  </div>
-  <div class='hero-section__right'>
-    <SltStackImg width='300px' />
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>We are Deaf engineers.<br />We build accessible technology for everyone.</h1>
+      <p class="subheading">Bridging worlds through code and sign language.</p>
+      <div class="hero-cta">
+        <a href="/about" class="cta-button primary">Our Story</a>
+        <a href="/projects" class="cta-button secondary">View Our Work</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <picture>
+        <source srcset="/slt-stack.webp" media="(prefers-color-scheme: light)" />
+        <source srcset="/slt-stack.webp" media="(prefers-color-scheme: dark)" />
+        <img
+          src="/slt-stack.webp"
+          alt="Sign Language Tech founders - Deaf software engineers collaborating"
+          loading="eager"
+        />
+      </picture>
+    </div>
   </div>
 </section>
 
 <style>
-  .hero-section {
+  .hero {
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, rgba(var(--black), 0.95) 0%, rgba(var(--gray-dark), 0.9) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 3.052em;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    color: rgb(var(--gray-light));
+    font-weight: 700;
+  }
+
+  .subheading {
+    font-size: 1.5em;
+    color: rgb(var(--gray));
+    margin: 0 0 40px 0;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 120px;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
   }
 
-  .hero-section__title {
-    white-space: pre-line;
-    font-size: 2.5em;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+  .cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
   }
 
-  .hero-section__subtitle {
-    white-space: pre-line;
-    font-size: 1em;
-    color: rgb(var(--gray))
+  .cta-button.primary {
+    background: var(--accent);
+    color: white;
   }
 
+  .cta-button.primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(var(--accent), 0.3);
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    color: rgb(var(--gray-light));
+    border: 2px solid rgb(var(--gray));
+  }
+
+  .cta-button.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .hero-image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    /*box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);*/
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Mobile responsive */
   @media (max-width: 720px) {
-    .hero-section__right {
-      display: none;
+    .hero {
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2em;
+      line-height: 1.3;
+    }
+
+    .subheading {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .cta-button {
+      width: 100%;
+      padding: 18px 24px;
+      font-size: 1em;
+      display: block;
+    }
+
+    .hero-image {
+      order: -1;
     }
   }
 
-  @media (prefers-color-scheme: dark) {
-    .hero-section__subtitle {
-      color: rgb(var(--white), 0.5)
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: light) {
+    .hero {
+      background: linear-gradient(135deg, rgba(var(--gray-light), 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    }
+
+    .hero-text h1 {
+      color: rgb(var(--black));
+    }
+
+    .subheading {
+      color: rgb(var(--gray-dark));
+    }
+
+    .cta-button.secondary {
+      color: rgb(var(--gray-dark));
+      border-color: rgb(var(--gray-dark));
     }
   }
 </style>

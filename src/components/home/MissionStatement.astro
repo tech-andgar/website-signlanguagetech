@@ -1,0 +1,100 @@
+---
+// Mission Statement Section - Why accessibility is our advantage
+---
+
+<section class="mission">
+  <div class="mission-content">
+    <h2>Your Advantage: Accessible by Design</h2>
+    <div class="mission-text">
+      <p>
+        Our identity isn't just a feature; it's our greatest strength. As members of the Deaf community,
+        we live and breathe accessibility. We understand firsthand the barriers that non-inclusive design
+        can create, and more importantly, we see the incredible opportunity that accessible technology
+        offers to connect people.
+      </p>
+      <p>
+        This unique perspective is embedded in every line of code we write, every solution we architect,
+        and every project we deliver. We don't add accessibility as an afterthought; we build it from the core.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission {
+    width: 100%;
+    padding: 120px 20px;
+    background: rgb(var(--gray-light));
+  }
+
+  .mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .mission h2 {
+    font-size: 2.441em;
+    line-height: 1.3;
+    margin: 0 0 40px 0;
+    color: rgb(var(--black));
+    font-weight: 700;
+  }
+
+  .mission-text {
+    text-align: left;
+  }
+
+  .mission-text p {
+    font-size: 1.25em;
+    line-height: 1.8;
+    color: rgb(var(--gray-dark));
+    margin: 0 0 24px 0;
+  }
+
+  .mission-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .mission {
+      padding: 80px 16px;
+    }
+
+    .mission-content {
+      padding: 0 8px;
+    }
+
+    .mission h2 {
+      font-size: 1.953em;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .mission-text {
+      padding: 0;
+    }
+
+    .mission-text p {
+      font-size: 1.05em;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    .mission {
+      background: rgb(var(--gray-dark));
+    }
+
+    .mission h2 {
+      color: rgb(var(--gray-light));
+    }
+
+    .mission-text p {
+      color: rgb(var(--gray));
+    }
+  }
+</style>

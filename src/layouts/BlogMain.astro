@@ -14,19 +14,100 @@ interface Props {
 const { tags, blogs, currentTag, basePath } = Astro.props;
 ---
 
-<main class='main'>
-  <div class='tag-chips'>
-    <TagList basePath={basePath} tags={tags} currentTag={currentTag} />
+<main class='blog-main'>
+  <div class='content-wrapper'>
+    <div class='page-header'>
+      <h1 class='page-title'>Blog Posts</h1>
+      <p class='page-description'>
+        Insights, tutorials, and stories from the intersection of technology and sign language accessibility
+      </p>
+    </div>
+
+    <div class='tag-chips'>
+      <TagList basePath={basePath} tags={tags} currentTag={currentTag} />
+    </div>
+
+    <section class='videos-section'>
+      <BlogList blogs={blogs} />
+    </section>
   </div>
-  <section class='videos-section'>
-    <BlogList blogs={blogs} />
-  </section>
 </main>
 
 <style>
-  .main {
+  .blog-main {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .content-wrapper {
+    max-width: 1250px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(var(--accent-dark));
+    margin-bottom: 0.5rem;
+  }
+
+  .page-description {
+    font-size: 1.125rem;
+    color: rgb(var(--gray-dark));
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .tag-chips {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-main {
+      padding: 1.5rem 0 !important;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .page-description {
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-main {
+      padding: 1rem 0 !important;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+    }
+
+    .page-description {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+  .page-description {
+    color: var(--blog-text-color);
+  }
   }
 </style>

@@ -1,0 +1,277 @@
+---
+// Impact Showcase Section - Featured Project: Sign Tours Hungary
+---
+
+<section class="impact-showcase">
+  <div class="impact-content">
+    <h2>Real Impact, Real Results</h2>
+    <div class="showcase-grid">
+      <div class="showcase-image">
+        <img
+          src="/sth-location-detail-chain-bridge.webp"
+          alt="Sign Tours Hungary - Interactive map showing Chain Bridge landmark with sign language video player"
+          loading="lazy"
+        />
+      </div>
+      <div class="showcase-details">
+        <h3>Sign Tours Hungary</h3>
+        <p class="project-description">
+          Making Hungary's cultural treasures accessible to Deaf travelers through an immersive,
+          visual-first platform. The entire project—from technical meetings to code reviews—was
+          conducted in sign language, ensuring authentic collaboration.
+        </p>
+        <div class="project-stats">
+          <div class="stat">
+            <strong>250+</strong>
+            <span>minutes of content</span>
+          </div>
+          <div class="stat">
+            <strong>30</strong>
+            <span>landmarks covered</span>
+          </div>
+          <div class="stat">
+            <strong>2</strong>
+            <span>sign languages</span>
+          </div>
+        </div>
+        <blockquote class="testimonial">
+          <p>
+            "The collaboration with Sign Language Tech was seamless. Their deep understanding
+            of accessibility needs resulted in a platform that truly serves our community."
+          </p>
+          <cite>— JOF Foundation</cite>
+        </blockquote>
+        <a href="/projects#sign-tours-hungary" class="cta-link">
+          View Full Case Study →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .impact-showcase {
+    width: 100%;
+    padding: 120px 20px;
+    background: rgb(var(--gray-dark));
+  }
+
+  .impact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .impact-content h2 {
+    font-size: 2.441em;
+    line-height: 1.3;
+    margin: 0 0 60px 0;
+    color: rgb(var(--gray-light));
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .showcase-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .showcase-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .showcase-details h3 {
+    font-size: 1.953em;
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+    color: rgb(var(--gray-light));
+    font-weight: 700;
+  }
+
+  .project-description {
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: rgb(var(--gray));
+    margin: 0 0 30px 0;
+  }
+
+  .project-stats {
+    display: flex;
+    gap: 40px;
+    margin: 0 0 30px 0;
+    padding: 24px 0;
+    border-top: 2px solid rgba(var(--gray), 0.3);
+    border-bottom: 2px solid rgba(var(--gray), 0.3);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat strong {
+    font-size: 2em;
+    color: var(--accent);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .stat span {
+    font-size: 0.9em;
+    color: rgb(var(--gray));
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .testimonial {
+    background: rgba(var(--black), 0.5);
+    padding: 24px;
+    border-left: 4px solid var(--accent);
+    margin: 0 0 30px 0;
+    border-radius: 4px;
+  }
+
+  .testimonial p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: rgb(var(--gray-light));
+    margin: 0 0 12px 0;
+    font-style: italic;
+  }
+
+  .testimonial cite {
+    font-size: 0.95em;
+    color: rgb(var(--gray));
+    font-style: normal;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-link:hover {
+    gap: 12px;
+    color: rgb(var(--gray-light));
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .impact-showcase {
+      padding: 80px 16px;
+    }
+
+    .impact-content h2 {
+      font-size: 1.953em;
+      margin-bottom: 40px;
+      line-height: 1.4;
+    }
+
+    .showcase-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .showcase-image {
+      border-radius: 8px;
+    }
+
+    .showcase-details h3 {
+      font-size: 1.563em;
+      line-height: 1.3;
+    }
+
+    .project-description {
+      font-size: 1.05em;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .project-stats {
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px 0;
+      margin: 24px 0;
+    }
+
+    .stat {
+      gap: 6px;
+    }
+
+    .stat strong {
+      font-size: 1.8em;
+    }
+
+    .stat span {
+      font-size: 0.85em;
+    }
+
+    .testimonial {
+      padding: 20px 16px;
+      margin-bottom: 24px;
+    }
+
+    .testimonial p {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    .testimonial cite {
+      font-size: 0.9em;
+    }
+
+    .cta-link {
+      font-size: 1em;
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* Light mode */
+  @media (prefers-color-scheme: light) {
+    .impact-showcase {
+      background: rgb(var(--gray-light));
+    }
+
+    .impact-content h2 {
+      color: rgb(var(--black));
+    }
+
+    .showcase-details h3 {
+      color: rgb(var(--black));
+    }
+
+    .project-description {
+      color: rgb(var(--gray-dark));
+    }
+
+    .testimonial {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .testimonial p {
+      color: rgb(var(--gray-dark));
+    }
+
+    .stat span {
+      color: rgb(var(--gray-dark));
+    }
+  }
+</style>

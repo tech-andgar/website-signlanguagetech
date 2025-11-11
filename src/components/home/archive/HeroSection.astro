@@ -1,0 +1,56 @@
+---
+import SltStackImg from '../icons/SltStackImg.astro';
+import BookAppointmentButton from '../BookAppointmentButton.astro';
+---
+
+<section class='hero-section'>
+  <div class='hero-section__left'>
+    <h1 class='hero-section__title'>Empowering
+      Deaf Community through
+      Technology and Innovation
+    </h1>
+    <h2 class='hero-section__subtitle mb-2'>
+      Sign Language Tech helps upskill your skill,
+      expand your knowledge, and empowers the deaf
+      and hard of hearing community.
+    </h2>
+    <BookAppointmentButton />
+  </div>
+  <div class='hero-section__right'>
+    <SltStackImg width='300px' />
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 120px;
+  }
+
+  .hero-section__title {
+    white-space: pre-line;
+    font-size: 2.5em;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-section__subtitle {
+    white-space: pre-line;
+    font-size: 1em;
+    color: rgb(var(--gray))
+  }
+
+  @media (max-width: 720px) {
+    .hero-section__right {
+      display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .hero-section__subtitle {
+      color: rgb(var(--white), 0.5)
+    }
+  }
+</style>

@@ -13,6 +13,7 @@
 :root {
   --accent: #2337ff;
   --accent-dark: #000d8a;
+  --accent-light: #7a8fff;
   --black: 15, 18, 25;
   --black-gradient: rgba(var(--black), 50%), var(--gray-light);
   --white: 255, 255, 255;
@@ -22,10 +23,14 @@
   --gray-gradient: rgba(var(--gray-light), 50%), #fff;
   --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
     0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --blog-text-color: rgb(var(--gray-dark));
+  --blog-divider-color: rgb(var(--gray));
+  --blog-card-border: rgb(var(--gray-light));
+  --blog-card-bg: rgb(var(--white));
 }
 
 ::selection {
-  background-color: #352e7e;
+  background-color: var(--accent);
   color: #fff;
 }
 
@@ -60,7 +65,7 @@ body {
 }
 
 main {
-  width: 960px;
+  /* width: 960px; */
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
@@ -211,9 +216,8 @@ hr {
   color: rgb(var(--white));
   padding: 8px;
   border-radius: 5px;
-  border-color: rgb(var(--gray));
+  border: none;
   cursor: pointer;
-  border: 0px;
 }
 
 .primary-button:hover {
@@ -235,7 +239,17 @@ hr {
   }
 }
 
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #7a8fff;
+    --accent-dark: #2337ff;
+    --accent-light: #a3b9ff;
+    --blog-text-color: rgba(var(--white), 0.7);
+    --blog-divider-color: rgba(var(--white), 0.5);
+    --blog-card-border: rgba(var(--white), 0.1);
+    --blog-card-bg: rgba(var(--white), 0.05);
+  }
+
   body {
     background: linear-gradient(var(--black-gradient)) no-repeat;
     background-color: rgb(var(--black));
@@ -246,7 +260,7 @@ hr {
     background-color: rgb(var(--white));
     color: rgb(var(--black))
   }
-  
+
   a {
     color: rgba(var(--white), .5);
   }
@@ -276,7 +290,7 @@ hr {
   .primary-button:hover a {
     color: rgb(var(--black))
   }
-  
+
   code {
     background-color: rgba(var(--white), 0.1);
   }

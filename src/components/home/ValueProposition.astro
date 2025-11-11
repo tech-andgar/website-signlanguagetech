@@ -1,0 +1,161 @@
+---
+// Value Proposition Section - Three Pillars
+---
+
+<section class="value-proposition">
+  <div class="value-content">
+    <h2>Built on Three Pillars</h2>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
+        <h3>Empathy-Driven Innovation</h3>
+        <p>We solve complex problems with elegant solutions that put the end-user first.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <h3>Quality by Design</h3>
+        <p>Accessible software is inherently better—more robust, usable, and scalable.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <h3>Seamless Collaboration</h3>
+        <p>Direct, frictionless communication ensuring your vision translates perfectly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .value-proposition {
+    width: 100%;
+    padding: 120px 20px;
+    background: white;
+  }
+
+  .value-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .value-content h2 {
+    font-size: 2.441em;
+    line-height: 1.3;
+    margin: 0 0 60px 0;
+    color: rgb(var(--black));
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .pillar {
+    background: rgb(var(--gray-light));
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .pillar:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+  }
+
+  .pillar-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+    color: var(--accent);
+  }
+
+  .pillar-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pillar h3 {
+    font-size: 1.563em;
+    line-height: 1.4;
+    margin: 0 0 16px 0;
+    color: rgb(var(--black));
+    font-weight: 700;
+  }
+
+  .pillar p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: rgb(var(--gray-dark));
+    margin: 0;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .value-proposition {
+      padding: 80px 20px;
+    }
+
+    .value-content h2 {
+      font-size: 1.953em;
+      margin-bottom: 40px;
+    }
+
+    .pillars-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .pillar {
+      padding: 30px 24px;
+    }
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    .value-proposition {
+      background: rgb(var(--black));
+    }
+
+    .value-content h2 {
+      color: rgb(var(--gray-light));
+    }
+
+    .pillar {
+      background: rgb(var(--gray-dark));
+    }
+
+    .pillar h3 {
+      color: rgb(var(--gray-light));
+    }
+
+    .pillar p {
+      color: rgb(var(--gray));
+    }
+
+    .pillar:hover {
+      box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
+    }
+  }
+</style>

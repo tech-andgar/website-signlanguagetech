@@ -8,37 +8,221 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <main class='main'>
-  <article>
-    <div class='mb-2'>
+  <article class='article'>
+    <header class='article-header'>
       <h1 class='title'>{title}</h1>
       <p class='description'>{description}</p>
-      <slot />
-      <div class='date'>
-        <FormattedDate date={pubDate} />
+      <div class='meta-info'>
+        <time class='date'>
+          <FormattedDate date={pubDate} />
+        </time>
         {
           updatedDate && (
-            <div class='last-updated-on'>
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
+            <span class='last-updated'>
+              • Updated <FormattedDate date={updatedDate} />
+            </span>
           )
         }
       </div>
+    </header>
+    <div class='content'>
+      <slot />
     </div>
   </article>
 </main>
 
 <style>
+  .main {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 20px;
+  }
+
+  .article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .article-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgb(var(--gray-light));
+  }
+
   .title {
-    margin: 0 0 20px 0;
-    font-size: 2.5em;
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(var(--accent-dark));
+    line-height: 1.2;
+  }
+
+  .description {
+    font-size: 1.25rem;
+    color: rgb(var(--gray-dark));
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .meta-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    color: rgb(var(--gray-dark));
   }
 
   .date {
-    margin-bottom: 0.5em;
-    color: rgb(var(--gray));
+    font-weight: 500;
   }
 
-  .last-updated-on {
+  .last-updated {
+    color: rgb(var(--gray));
     font-style: italic;
+  }
+
+  .content {
+    line-height: 1.8;
+    font-size: 1.0625rem;
+    color: rgb(var(--gray-dark));
+  }
+
+  .content :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgb(var(--accent-dark));
+  }
+
+  .content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.875rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(var(--accent-dark));
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .content :global(ul),
+  .content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.75rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .content :global(code) {
+    background-color: rgb(var(--gray-light));
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .content :global(pre) {
+    background-color: rgb(var(--gray-light));
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .content :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .content :global(blockquote) {
+    border-left: 4px solid rgb(var(--accent));
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: rgb(var(--gray-dark));
+  }
+
+  .content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+
+  .content :global(a) {
+    color: rgb(var(--accent));
+    text-decoration: underline;
+  }
+
+  .content :global(a:hover) {
+    color: rgb(var(--accent-dark));
+  }
+
+  @media (max-width: 768px) {
+    .main {
+      padding: 1.5rem 20px;
+    }
+
+    .article-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+
+    .description {
+      font-size: 1.125rem;
+    }
+
+    .content {
+      font-size: 1rem;
+    }
+
+    .content :global(h2) {
+      font-size: 1.625rem;
+      margin-top: 2rem;
+    }
+
+    .content :global(h3) {
+      font-size: 1.375rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .main {
+      padding: 1rem 20px;
+    }
+
+    .title {
+      font-size: 1.75rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
+    .meta-info {
+      font-size: 0.875rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .last-updated {
+      margin-left: 0;
+    }
+
+    .content :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .content :global(h3) {
+      font-size: 1.25rem;
+    }
   }
 </style>

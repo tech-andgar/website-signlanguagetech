@@ -2,14 +2,20 @@
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/home/HeroSection.astro';
-import FeaturesSection from '../components/home/FeaturesSection.astro';
-import ExploreMoreSection from '../components/home/ExploreMoreSection.astro';
+import MissionStatement from '../components/home/MissionStatement.astro';
+import ValueProposition from '../components/home/ValueProposition.astro';
+import ImpactShowcase from '../components/home/ImpactShowcase.astro';
+import CommunityHighlight from '../components/home/CommunityHighlight.astro';
+import CTASection from '../components/home/CTASection.astro';
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class='main-content'>
     <HeroSection />
-    <FeaturesSection />
-    <ExploreMoreSection />
+    <MissionStatement />
+    <ValueProposition />
+    <ImpactShowcase />
+    <CommunityHighlight />
+    <CTASection />
   </main>
 </Layout>
