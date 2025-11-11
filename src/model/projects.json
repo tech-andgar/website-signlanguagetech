@@ -1,0 +1,27 @@
+[
+  {
+    "id": "sign-tours-hungary",
+    "title": "Sign Tours Hungary",
+    "image": "/sth-location-detail-chain-bridge.webp",
+    "challenge": "The JOF Foundation wanted to make Hungary's cultural treasures accessible to Deaf travelers, who often face language barriers with traditional tours and guidebooks. The goal was to create an immersive, 'visual-first' experience.",
+    "solution": "We developed a fully accessible web platform built around an interactive map and a high-quality video player. The project was unique because the entire process—from technical meetings to code reviews—was conducted entirely in sign language between our Deaf engineers and the client, ensuring frictionless collaboration.",
+    "impact": "The platform successfully launched with over 250 minutes of content in Hungarian and International Sign Language for 30 landmarks. It has become a vital resource for accessible tourism in the region and a testament to how native collaboration produces authentic results.",
+    "testimonial": {
+      "author": "JOF Foundation CEO",
+      "text": "Incredibly Wow! My previous experiences with other people I communicated with were frustrating. But with you we communicated in Sign Language seamlessly, there were no barriers. Communication was instant, natural, and clear. We shared our vision with you and explained. You took from every detail, from the layout to the navigation, was built with the perspective embedded in it. We got totally blown away by your quality delivery. Why? because the website feels genuinely deaf-friendly. WoW My vision you fully took and implemented was 100% met. I couldn't feel any burden on my shoulder. I was really relieved and happy to work with you it's an authentic one. It was a truly enjoyable partnership."
+    },
+    "technologies": "Visual-First UX/UI Design, Internationalization (i18n) Framework, SEO Optimization, Content Security Policy (CSP).",
+    "liveProjectUrl": "http://www.signtourshungary.com",
+    "youtubeEmbedUrl": "https://www.youtube.com/embed/draZ6Bjbmhc?si=s_cCXrxCIOx4ahvp"
+  },
+  {
+    "id": "sign-tech-interview",
+    "title": "Sign Tech Interview",
+    "image": "/slt-deaf-collaboration.webp",
+    "challenge": "Deaf and hard-of-hearing professionals face unique hurdles in job interviews, from communication barriers to a lack of tailored resources. There was a need for a centralized platform to provide guidance and empowerment.",
+    "solution": "We created an open-source resource platform, Sign Tech Interview, designed as a comprehensive guide with practical strategies and tips for interview success. The platform was built following the highest accessibility standards (WCAG) to ensure it is usable by everyone.",
+    "impact": "The platform has become an empowering tool for the community, providing free access to knowledge that helps level the professional playing field. It reinforces our mission to not only serve clients but also to strengthen our community.",
+    "technologies": "Modern Front-End Development, Web Content Accessibility Guidelines (WCAG), Responsive Design, Multilingual User Interface.",
+    "liveProjectUrl": "https://interview.signlanguagetech.com/"
+  }
+]

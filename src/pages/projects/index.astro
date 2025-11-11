@@ -1,0 +1,133 @@
+---
+import { SITE_TITLE } from '../../consts';
+import Layout from '../../layouts/Layout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import projects from '../../model/projects.json';
+
+const title = SITE_TITLE + ' | Projects';
+const description = `Turning Challenges into Digital Solutions`;
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <h2 class='text-center'>Turning Challenges into Digital Solutions</h2>
+    <p class='text-center'>
+      We believe the best software is born from a deep understanding of the
+      problem. Here are a few examples of how we've partnered with clients to
+      create real, lasting impact.
+    </p>
+
+    <div class='projects-grid'>
+      {projects.map((project) => (
+        <div class='project-card'>
+          <img src={project.image} alt={project.title} class='project-image' />
+          <div class='project-content'>
+            <h3>{project.title}</h3>
+            <p>
+              <strong>The Challenge:</strong> {project.challenge}
+            </p>
+            <p>
+              <strong>The Solution:</strong> {project.solution}
+            </p>
+            <p>
+              <strong>The Impact:</strong> {project.impact}
+            </p>
+            {project.testimonial && (
+              <p class='testimonial'>
+                <strong>{project.testimonial.author}:</strong> "{project.testimonial.text}"
+              </p>
+            )}
+            <p>
+              <strong>Key Technologies:</strong> {project.technologies}
+            </p>
+            <div class='project-links'>
+              {project.liveProjectUrl && (
+                <CTAButton href={project.liveProjectUrl} text='Live Project' />
+              )}
+              {project.youtubeEmbedUrl && (
+                <iframe class="youtube-embed" src={project.youtubeEmbedUrl} allowfullscreen></iframe>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <br>
+    <div class='text-center'>
+        <CTAButton href='https://cal.com/sign-language-tech/slt-free-consultation' text="Have a challenge for us? Let's discuss your project" />
+      </div>
+  </main>
+</Layout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    margin-top: 2em;
+  }
+
+  .project-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .project-content {
+    padding: 1.5em;
+  }
+
+  .project-content h3 {
+    margin-top: 0;
+    color: var(--heading-color);
+  }
+
+  .project-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  .testimonial {
+    font-style: italic;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1em;
+    margin: 1.5em 0;
+  }
+
+  .project-links {
+    margin-top: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .youtube-embed {
+    width: 100%;
+    height: 315px; /* Standard YouTube embed height */
+    border-radius: 8px;
+    border: 0; /* Replaced deprecated frameborder="0" with CSS */
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr; /* Changed to single column for better readability */
+    }
+  }
+
+  @media (max-width: 767px) {
+    .project-card {
+      flex-direction: column;
+    }
+  }
+</style>

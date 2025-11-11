@@ -12,8 +12,9 @@ const isProd = import.meta.env.PROD;
 // https://astro.build/config
 export default defineConfig({
   server: {
-    port
+    port,
+    allowedHosts: true
   },
   site: isProd ? liveUrl : localHostUrl,
-  integrations: [mdx(), sitemap(), alpinejs()]
+  integrations: [mdx(), sitemap(), alpinejs()],
 });
